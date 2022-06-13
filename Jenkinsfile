@@ -2,20 +2,20 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('sonarqube quality test) {
+            agent{
+              dockeur{
+                image "openjdk:11"
+              }
+            }
             steps {
-                echo 'Building..'
+                script{
+                    withSonarQubeEnv(credentialsId: 'sonar_tocken') {
+                    
+                    }
+                
+                }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
+   }
 }
