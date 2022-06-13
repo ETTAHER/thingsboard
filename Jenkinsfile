@@ -2,16 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('sonarqube quality test') {
+        stage('sonarqube quality test) {
             agent{
-              dockeur{
+              docker{
                 image "openjdk:11"
               }
             }
             steps {
                 script{
                     withSonarQubeEnv(credentialsId: 'sonar_tocken') {
-                           sh 'mvn clean verify sonar:sonar'
+                        sh 'mvn clean verify sonar:sonar' 
                     }
                 
                 }
