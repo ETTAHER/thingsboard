@@ -1,17 +1,17 @@
-pipeline{
+pipeline {
     agent any
 
-    stages{
-        stage('sonarqube quality test){
+    stages {
+        stage('sonarqube quality test') {
             agent{
               dockeur{
                 image "openjdk:11"
               }
             }
-            steps{
+            steps {
                 script{
                     withSonarQubeEnv(credentialsId: 'sonar_tocken') {
-                         sh 'mvn clean verify sonar:sonar'
+                           sh 'mvn clean verify sonar:sonar'
                     }
                 
                 }
